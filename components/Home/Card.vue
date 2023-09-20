@@ -2,15 +2,15 @@
     <div class="HomeCard relative w-full mb-10 h-[190px]">
         <div
             class="
-                absolute w-[90%] -top-7 left-3
+                card absolute w-[90%] -top-7 left-3
                 -rotate-12 h-[180px] bg-gradient-to-r
-                from-[#ce7ee9] to-[#3823c4]
+                from-[#ce7ee9] to-[#4d3db4]
                 rounded-3xl
             "
         ></div>
         <div
             class="
-                absolute w-[95%] -top-4 left-2
+                card absolute w-[95%] -top-4 left-2
                 -rotate-6 h-[185px] bg-gradient-to-r
                 from-[#ca49f6] to-[#5c46ea]
                 rounded-3xl
@@ -32,11 +32,11 @@
             <div class="flex w-full items-center">
                 <div class="w-[50%]">
                     <h3 class="font-light text-lg">Spend</h3>
-                    <span class="font-semibold text-[20px]">+2,600 L.E</span>
+                    <span class="font-semibold text-[20px]">2,600 L.E</span>
                 </div>
                 <div class="w-[50%]">
                     <h3 class="font-light text-lg">Residual</h3>
-                    <span class="font-semibold text-[20px]">-897 L.E</span>
+                    <span class="font-semibold text-[20px]">897 L.E</span>
                 </div>
             </div>
         </div>

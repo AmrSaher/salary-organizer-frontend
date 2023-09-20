@@ -6,9 +6,30 @@
             -mr-7 px-7 scroll-without-bar
         "
     >
-        <img src="~/assets/img/1.gif" alt="cat" class="w-[90px] h-[90px] rounded-2xl">
-        <img src="~/assets/img/2.jpg" alt="cat" class="w-[90px] h-[90px] rounded-2xl">
-        <img src="~/assets/img/3.jpg" alt="cat" class="w-[90px] h-[90px] rounded-2xl">
-        <img src="~/assets/img/4.jpg" alt="cat" class="w-[90px] h-[90px] rounded-2xl">
+        <HomeSliderCard
+            title="Bills"
+            icon="bi-receipt"
+            color="bg-orange-400"
+        />
+        <HomeSliderCard
+            title="Rentals"
+            icon="bi-house"
+            color="bg-blue-400"
+        />
+        <HomeSliderCard
+            title="Installments"
+            icon="bi-cash-coin"
+            color="bg-cyan-400"
+        />
+        <HomeSliderCard
+            title="Fellows"
+            icon="bi-people-fill"
+            color="bg-red-400"
+        />
+        <HomeSliderCard
+            title="Investments"
+            icon="bi-bank"
+            color="bg-purple-400"
+        />
     </div>
 </template>

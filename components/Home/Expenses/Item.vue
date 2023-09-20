@@ -1,7 +1,14 @@
 <template>
     <li class="HomeExpensesItem w-full flex items-center justify-between text-white">
         <div class="flex items-center gap-3">
-            <span class="w-[45px] h-[45px] rounded-full flex justify-center items-center text-xl text-white" :style="'background: ' + color">
+            <span
+                class="
+                    w-[45px] h-[45px] rounded-full
+                    flex justify-center items-center
+                    text-xl text-white
+                "
+                :style="'background: ' + color"
+            >
                 <i class="bi" :class="icon"></i>
             </span>
             <div class="flex flex-col">

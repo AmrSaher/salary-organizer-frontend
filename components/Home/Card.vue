@@ -4,6 +4,14 @@
             class="
                 absolute w-[90%] -top-7 left-3
                 -rotate-12 h-[180px] bg-gradient-to-r
+                from-[#ce7ee9] to-[#3823c4]
+                rounded-3xl
+            "
+        ></div>
+        <div
+            class="
+                absolute w-[95%] -top-4 left-2
+                -rotate-6 h-[185px] bg-gradient-to-r
                 from-[#ca49f6] to-[#5c46ea]
                 rounded-3xl
             "

@@ -1,0 +1,18 @@
+* {
+    cursor: none;
+}
+
+.scroll-without-bar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.scroll-without-bar::-webkit-scrollbar {
+    width: 0.1rem;
+    background: transparent;
+}
+.scroll-without-bar::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+.scroll-without-bar::-webkit-scrollbar-track {
+    background: transparent;
+}

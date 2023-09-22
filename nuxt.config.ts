@@ -7,13 +7,14 @@ export default defineNuxtConfig({
         {
           name: 'google',
           content: 'notranslate',
-        }
-      ]
-    }
+        },
+      ],
+    },
   },
   modules: [
     '@nuxtjs/tailwindcss',
-    '@vite-pwa/nuxt'
+    '@vite-pwa/nuxt',
+    '@pinia/nuxt',
   ],
   css: [
     '~/assets/scss/main.css',
@@ -23,7 +24,6 @@ export default defineNuxtConfig({
       name: 'Salary Organizer',
       short_name: 'Salary Organizer',
       description: 'Salary organizer is an app organize your salary and divide it to bills, rent, etc.',
-
     },
     workbox: {
       navigateFallback: '/',

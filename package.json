@@ -16,7 +16,12 @@
     "nuxt": "^3.7.3"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.4.11",
     "bootstrap-icons": "^1.11.1",
+    "pinia": "^2.1.6",
     "sass": "^1.68.0"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }

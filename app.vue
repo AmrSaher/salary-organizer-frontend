@@ -1,9 +1,10 @@
 <template>
   <NuxtLayout>
+    <VitePwaManifest />
     <NuxtPage />
   </NuxtLayout>
 </template>
 
-<script>
+<script lang="ts" setup>
 import 'bootstrap-icons/font/bootstrap-icons.css'
 </script>

@@ -39,3 +39,6 @@
         <img class="w-[40%]" src="~/assets/img/complete-profile.png" alt="complete your profile">
     </div>
 </template>
+
+<script lang="ts" setup>
+</script>

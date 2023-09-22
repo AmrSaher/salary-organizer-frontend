@@ -1,5 +1,12 @@
 <template>
-    <header class="Header w-full flex items-center justify-between mb-7 bg-[#2a2838]">
+    <header
+        class="
+            Header fixed top-0 left-0 px-7
+            py-4 z-30 w-full flex items-center
+            justify-between bg-[#2a28387a]
+            backdrop-blur-md
+        "
+    >
         <h1 class="text-3xl text-white font-semibold">{{ title }}</h1>
         <slot />
     </header>

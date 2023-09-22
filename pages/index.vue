@@ -1,16 +1,33 @@
 <template>
-    <div class="Home">
-        <Header title="Hello, Amr">
-            <NuxtLink to="/">
-                <img src="~/assets/img/avatar.jpg" alt="avatar" class="w-[45px] rounded-full">
-            </NuxtLink>
-        </Header>
-        <HomeCompleteProfileAlert />
-        <HomeSlider />
-        <HomeCard />
-        <HomeExpenses />
+    <div
+        class="
+            Main w-full min-h-screen flex flex-col justify-between
+            items-center py-10
+        "
+    >
+        <span></span>
+        <h1 class="text-[#5c46ea] text-4xl font-bold">Salary Organizer</h1>
+        <div class="flex flex-col w-full px-5 gap-2">
+            <NuxtLink
+                to="/home"
+                class="
+                    w-full px-7 py-4 bg-[#5c46ea] text-white
+                    text-center rounded-md font-semibold text-md
+                "
+            >Login</NuxtLink>
+            <NuxtLink
+                to="/"
+                class="
+                    w-full px-7 py-4 bg-[#47445e] text-white
+                    text-center rounded-md font-semibold text-md
+                "
+            >Register</NuxtLink>
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+    layout: 'start',
+})
 </script>

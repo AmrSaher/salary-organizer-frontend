@@ -1,20 +1,23 @@
 <template>
-    <div
-        class="
-            fixed top-0 left-0 w-full
-            h-full z-50 bg-[#0000002c]
-            backdrop-blur-sm flex justify-center
-            items-center
-        "
-    >
-        <div class="lds-ripple">
-            <div></div>
-            <div></div>
-        </div>
+  <div
+    class="
+      fixed top-0 left-0 w-full
+      h-full z-50 bg-[#0000002c]
+      backdrop-blur-sm flex justify-center
+      items-center
+    "
+  >
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
     </div>
+  </div>
 </template>
 
-<style>
+<script lang="ts" setup>
+</script>
+
+<style lang="scss" scoped>
 .lds-ripple {
   display: inline-block;
   position: relative;

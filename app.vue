@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout>
-    <VitePwaManifest />
     <Loader v-if="loaderStore.isLoading" />
+    <VitePwaManifest />
     <NuxtPage />
   </NuxtLayout>
 </template>

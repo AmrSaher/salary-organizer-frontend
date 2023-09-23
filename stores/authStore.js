@@ -1,8 +1,10 @@
 import { defineStore } from 'pinia'
+import { useLoaderStore } from './loaderStore'
 
 export const useAuthStore = defineStore('auth', () => {
     const user = ref({})
     const token = ref({})
+    const loaderStore = useLoaderStore()
 
     const cacheJWTToken = (jwt) => {
         token.value = jwt
@@ -26,27 +28,33 @@ export const useAuthStore = defineStore('auth', () => {
     }
 
     const login = async (credentials) => {
+        loaderStore.isLoading = true
         const { data } = await useApi('/login', {
             method: 'post',
             body: credentials,
         })
 
         cacheJWTToken(data.value)
+        await getUser()
         navigateTo('/home')
+        loaderStore.isLoading = false
     }
 
     const register = async (credentials) => {
+        loaderStore.isLoading = true
         const { data } = await useApi('/register', {
             method: 'post',
             body: credentials,
         })
 
         cacheJWTToken(data.value)
+        await getUser()
         navigateTo('/home')
+        loaderStore.isLoading = false
     }
 
     const logout = async () => {
-        const { data } = await useApi('/logout', {
+        await useApi('/logout', {
             method: 'post',
             headers: {
                 Authorization: 'Bearer ' + getJWTToken(),
@@ -61,5 +69,6 @@ export const useAuthStore = defineStore('auth', () => {
         login,
         register,
         logout,
+        clearJWTToken,
     }
 })

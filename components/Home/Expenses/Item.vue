@@ -20,7 +20,7 @@
     </li>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 const { icon, title, color } = defineProps([
     'icon',
     'title',

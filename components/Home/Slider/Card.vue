@@ -13,7 +13,7 @@
     </NuxtLink>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 const { color, icon, title } = defineProps([
     'color',
     'icon',

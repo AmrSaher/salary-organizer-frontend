@@ -29,5 +29,6 @@
 <script lang="ts" setup>
 definePageMeta({
     layout: 'start',
+    middleware: 'guest',
 })
 </script>

@@ -59,16 +59,20 @@
 </template>
 
 <script lang="ts" setup>
+import { useAuthStore } from '~/stores/authStore'
+
 definePageMeta({
     layout: 'start',
+    middleware: 'guest',
 })
 
 const formData = ref({
     email: '',
     password: '',
 })
+const authStore = useAuthStore()
 
-const handleLoginSubmit = () => {
-    //
+const handleLoginSubmit = async () => {
+    await authStore.login(formData.value)
 }
 </script>

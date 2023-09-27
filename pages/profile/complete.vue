@@ -1,5 +1,5 @@
 <template>
-    <div class="ProfileComplete">
+    <div class="ProfileComplete text-white">
         <Header title="Complete your data" />
         <form
             @submit.prevent="handleUpdateProfileSubmit"

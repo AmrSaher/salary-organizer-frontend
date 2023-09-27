@@ -16,7 +16,7 @@
             >
                 <input
                     type="text"
-                    placeholder="Name"
+                    placeholder="Username"
                     v-model="formData.name"
                     class="
                         w-full p-4 rounded-md outline-none text-md

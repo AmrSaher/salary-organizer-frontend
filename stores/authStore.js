@@ -89,5 +89,6 @@ export const useAuthStore = defineStore('auth', () => {
         register,
         logout,
         updateProfile,
+        getJWTToken,
     }
 })

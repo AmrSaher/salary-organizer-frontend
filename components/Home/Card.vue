@@ -27,7 +27,7 @@
         >
             <header class="flex flex-col">
                 <h2 class="font-light text-lg">My salary</h2>
-                <span class="font-bold text-[30px] -mt-2">30,000 L.E</span>
+                <span class="font-bold text-[30px] -mt-2">{{ authStore.user.profile.salary }} L.E</span>
             </header>
             <div class="flex w-full items-center">
                 <div class="w-[50%]">
@@ -44,6 +44,9 @@
 </template>
 
 <script setup>
+import { useAuthStore } from '~/stores/authStore'
+
+const authStore = useAuthStore()
 </script>
 
 <style lang="scss" scoped>

@@ -1,11 +1,10 @@
 <template>
     <div class="Home">
-        <Header :title="'Hello, ' + name">
-            <NuxtLink to="/">
+        <Header :title="'Hello, ' + authStore.user.profile.first_name">
+            <a href="#" @click="handleLogoutSubmit">
                 <img src="~/assets/img/avatar.jpg" alt="avatar" class="w-[45px] rounded-full">
-            </NuxtLink>
+            </a>
         </Header>
-        <HomeCompleteProfileAlert />
         <HomeSlider />
         <HomeCard />
         <HomeExpenses />
@@ -16,12 +15,15 @@
 import { useAuthStore } from '~/stores/authStore'
 
 definePageMeta({
-    layout: 'default',
-    middleware: 'auth',
+    middleware: [
+        'auth',
+        'complete-profile-required',
+    ],
 })
 
 const authStore = useAuthStore()
-const name = ref(authStore.user.name.split(' ')[0])
 
-// authStore.clearJWTToken()
+const handleLogoutSubmit = async () => {
+    await authStore.logout()
+}
 </script>

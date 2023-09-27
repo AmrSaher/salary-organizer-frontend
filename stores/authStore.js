@@ -28,7 +28,7 @@ export const useAuthStore = defineStore('auth', () => {
     }
 
     const login = async (credentials) => {
-        loaderStore.isLoading = true
+        loaderStore.startLoading()
         const { data } = await useApi('/login', {
             method: 'post',
             body: credentials,
@@ -37,11 +37,11 @@ export const useAuthStore = defineStore('auth', () => {
         cacheJWTToken(data.value)
         await getUser()
         navigateTo('/home')
-        loaderStore.isLoading = false
+        loaderStore.stopLoading()
     }
 
     const register = async (credentials) => {
-        loaderStore.isLoading = true
+        loaderStore.startLoading()
         const { data } = await useApi('/register', {
             method: 'post',
             body: credentials,
@@ -50,17 +50,36 @@ export const useAuthStore = defineStore('auth', () => {
         cacheJWTToken(data.value)
         await getUser()
         navigateTo('/home')
-        loaderStore.isLoading = false
+        loaderStore.stopLoading()
     }
 
     const logout = async () => {
+        loaderStore.startLoading()
         await useApi('/logout', {
             method: 'post',
             headers: {
                 Authorization: 'Bearer ' + getJWTToken(),
             },
         })
+
         clearJWTToken()
+        navigateTo('/')
+        loaderStore.stopLoading()
+    }
+
+    const updateProfile = async (attrs) => {
+        loaderStore.startLoading()
+        await useApi('/profile', {
+            method: 'put',
+            body: attrs,
+            headers: {
+                Authorization: 'Bearer ' + getJWTToken(),
+            },
+        })
+
+        await getUser()
+        navigateTo('/home')
+        loaderStore.stopLoading()
     }
 
     return {
@@ -69,6 +88,6 @@ export const useAuthStore = defineStore('auth', () => {
         login,
         register,
         logout,
-        clearJWTToken,
+        updateProfile,
     }
 })

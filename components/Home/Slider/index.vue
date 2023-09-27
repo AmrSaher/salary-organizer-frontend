@@ -2,7 +2,7 @@
     <div
         class="
             HomeSlider overflow-x-auto flex
-            items-center gap-3 mb-20 -ml-5
+            items-center gap-3 mb-16 -ml-5
             -mr-5 px-7 scroll-without-bar
         "
     >
@@ -30,6 +30,11 @@
             title="Investments"
             icon="bi-bank"
             color="bg-purple-400"
+        />
+        <HomeSliderCard
+            title="Add new"
+            icon="bi-plus"
+            color="bg-[#5c46ea]"
         />
     </div>
 </template>

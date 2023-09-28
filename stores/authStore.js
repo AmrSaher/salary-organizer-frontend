@@ -9,7 +9,10 @@ export const useAuthStore = defineStore('auth', () => {
         },
     })
     const user = ref(currentUser.value)
-    const token = ref({})
+    const currentToken = ref({
+        access_token: '',
+    })
+    const token = ref(currentToken.value)
     const loaderStore = useLoaderStore()
 
     const cacheJWTToken = (jwt) => {
@@ -20,7 +23,7 @@ export const useAuthStore = defineStore('auth', () => {
     const getJWTToken = () => token.value.access_token ?? useCookie('jwt').value
 
     const clearJWTToken = () => {
-        token.value = {}
+        token.value = currentToken.value
         useCookie('jwt').value = null
     }
 
@@ -35,11 +38,17 @@ export const useAuthStore = defineStore('auth', () => {
 
     const login = async (credentials) => {
         loaderStore.startLoading()
-        const { data } = await useApi('/login', {
+        const { data, error } = await useApi('/login', {
             method: 'post',
             body: credentials,
         })
-
+        
+        // Check if any errors returns
+        if (error?.value?.data?.errors) {
+            loaderStore.stopLoading()
+            return error.value.data.errors
+        }
+        
         cacheJWTToken(data.value)
         await getUser()
         navigateTo('/home')

@@ -23,6 +23,7 @@
                         bg-[#363447] border-2 border-[#47445e]
                     "
                 >
+                <span class="-mt-2 text-red-500 text-md font-semibold">{{ formErrors?.email[0] }}</span>
                 <input
                     type="password"
                     placeholder="Password"
@@ -32,6 +33,7 @@
                         bg-[#363447] border-2 border-[#47445e]
                     "
                 >
+                <span class="-mt-2 text-red-500 text-md font-semibold">{{ formErrors?.password[0] }}</span>
             </form>
         </div>
         <div class="flex flex-col gap-2">
@@ -70,9 +72,19 @@ const formData = ref({
     email: '',
     password: '',
 })
+const currentFormErrors = ref({
+    email: [],
+    password: [],
+})
+const formErrors = ref(currentFormErrors.value)
 const authStore = useAuthStore()
 
 const handleLoginSubmit = async () => {
-    await authStore.login(formData.value)
+    formErrors.value = currentFormErrors.value
+    const errors = await authStore.login(formData.value)
+    formErrors.value = {
+        email: errors?.email ?? [],
+        password: errors?.password ?? [],
+    }
 }
 </script>

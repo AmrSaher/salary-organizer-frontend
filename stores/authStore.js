@@ -90,13 +90,19 @@ export const useAuthStore = defineStore('auth', () => {
 
     const updateProfile = async (attrs) => {
         loaderStore.startLoading()
-        await useApi('/profile', {
+        const { error } = await useApi('/profile', {
             method: 'put',
             body: attrs,
             headers: {
                 Authorization: 'Bearer ' + getJWTToken(),
             },
         })
+
+        // Check if any errors returns
+        if (error?.value?.data?.errors) {
+            loaderStore.stopLoading()
+            return error.value.data.errors
+        }
 
         await getUser()
         navigateTo('/home')

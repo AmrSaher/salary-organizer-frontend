@@ -16,6 +16,7 @@
                     bg-[#363447] border-2 border-[#47445e]
                 "
             >
+            <span class="-mt-2 text-red-500 text-md font-semibold">{{ formErrors?.first_name[0] }}</span>
             <input
                 type="text"
                 placeholder="Last Name"
@@ -25,6 +26,7 @@
                     bg-[#363447] border-2 border-[#47445e]
                 "
             >
+            <span class="-mt-2 text-red-500 text-md font-semibold">{{ formErrors?.last_name[0] }}</span>
             <input
                 type="date"
                 placeholder="Birth Date"
@@ -34,6 +36,7 @@
                     bg-[#363447] border-2 border-[#47445e]
                 "
             >
+            <span class="-mt-2 text-red-500 text-md font-semibold">{{ formErrors?.birth_date[0] }}</span>
             <input
                 type="number"
                 placeholder="Salary"
@@ -43,6 +46,7 @@
                     bg-[#363447] border-2 border-[#47445e]
                 "
             >
+            <span class="-mt-2 text-red-500 text-md font-semibold">{{ formErrors?.salary[0] }}</span>
             <input
                 type="submit"
                 value="Start"
@@ -71,10 +75,23 @@ const formData = ref({
     birth_date: '',
     salary: '',
 })
-
+const currentFormErrors = ref({
+    first_name: [],
+    last_name: [],
+    birth_date: [],
+    salary: [],
+})
+const formErrors = ref(currentFormErrors.value)
 const authStore = useAuthStore()
 
 const handleUpdateProfileSubmit = async () => {
-    await authStore.updateProfile(formData.value)
+    formErrors.value = currentFormErrors.value
+    const errors = await authStore.updateProfile(formData.value)
+    formErrors.value = {
+        first_name: errors?.first_name ?? [],
+        last_name: errors?.last_name ?? [],
+        birth_date: errors?.birth_date ?? [],
+        salary: errors?.salary ?? [],
+    }
 }
 </script>

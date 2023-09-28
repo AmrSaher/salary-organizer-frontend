@@ -23,6 +23,7 @@
                         bg-[#363447] border-2 border-[#47445e]
                     "
                 >
+                <span class="-mt-2 text-red-500 text-md font-semibold">{{ formErrors?.name[0] }}</span>
                 <input
                     type="email"
                     placeholder="Email Address"
@@ -32,6 +33,7 @@
                         bg-[#363447] border-2 border-[#47445e]
                     "
                 >
+                <span class="-mt-2 text-red-500 text-md font-semibold">{{ formErrors?.email[0] }}</span>
                 <input
                     type="password"
                     placeholder="Password"
@@ -41,6 +43,7 @@
                         bg-[#363447] border-2 border-[#47445e]
                     "
                 >
+                <span class="-mt-2 text-red-500 text-md font-semibold">{{ formErrors?.password[0] }}</span>
                 <input
                     type="password"
                     placeholder="Confirm Your Password"
@@ -90,9 +93,21 @@ const formData = ref({
     password: '',
     password_confirmation: '',
 })
+const currentFormErrors = ref({
+    name: [],
+    email: [],
+    password: [],
+})
+const formErrors = ref(currentFormErrors.value)
 const authStore = useAuthStore();
 
 const handleRegisterSubmit = async () => {
-    await authStore.register(formData.value)
+    formErrors.value = currentFormErrors.value
+    const errors = await authStore.register(formData.value)
+    formErrors.value = {
+        name: errors?.name ?? [],
+        email: errors?.email ?? [],
+        password: errors?.password ?? [],
+    }
 }
 </script>

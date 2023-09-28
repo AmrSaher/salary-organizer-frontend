@@ -57,10 +57,16 @@ export const useAuthStore = defineStore('auth', () => {
 
     const register = async (credentials) => {
         loaderStore.startLoading()
-        const { data } = await useApi('/register', {
+        const { data, error } = await useApi('/register', {
             method: 'post',
             body: credentials,
         })
+
+        // Check if any errors returns
+        if (error?.value?.data?.errors) {
+            loaderStore.stopLoading()
+            return error.value.data.errors
+        }
 
         cacheJWTToken(data.value)
         await getUser()

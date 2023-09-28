@@ -2,8 +2,8 @@
     <div
         class="
             HomeSlider overflow-x-auto flex
-            items-center gap-3 mb-16 -ml-5
-            -mr-5 px-7 scroll-without-bar
+            items-center gap-3 mb-14 -ml-5
+            -mr-5 px-5 scroll-without-bar
         "
     >
         <HomeSliderCard

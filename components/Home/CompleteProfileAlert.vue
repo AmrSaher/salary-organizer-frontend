@@ -3,7 +3,7 @@
         class="
             HomeCompleteProfileAlert flex items-center
             justify-between rounded-lg
-            px-5 py-3 bg-[#47445e] mb-10 text-white
+            px-5 py-3 bg-[#47445e] mb-7 text-white
         "
     >
         <div class="flex flex-col gap-[3px]">

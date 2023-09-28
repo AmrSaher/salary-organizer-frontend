@@ -1,13 +1,13 @@
 <template>
-    <div class="HomeCard relative w-full mb-10 h-[190px]">
-        <div
+    <div class="HomeCard relative w-full mb-7 h-[190px]">
+        <!-- <div
             class="
                 card absolute w-[90%] -top-7 left-3
                 -rotate-12 h-[180px] bg-gradient-to-r
                 from-[#ce7ee9] to-[#4d3db4]
                 rounded-3xl
             "
-        ></div>
+        ></div> -->
         <div
             class="
                 card absolute w-[95%] -top-4 left-2

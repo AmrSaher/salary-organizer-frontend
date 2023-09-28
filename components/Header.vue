@@ -1,7 +1,7 @@
 <template>
     <header
         class="
-            Header fixed top-0 left-0 px-7
+            Header fixed top-0 left-0 px-5
             py-4 z-30 w-full flex items-center
             justify-between bg-[#2a28387a]
             backdrop-blur-md

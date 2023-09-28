@@ -5,6 +5,7 @@
                 <img src="~/assets/img/avatar.jpg" alt="avatar" class="w-[45px] rounded-full">
             </a>
         </Header>
+        <!-- <HomeCompleteProfileAlert /> -->
         <HomeSlider />
         <HomeCard />
         <HomeExpenses />

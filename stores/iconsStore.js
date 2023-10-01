@@ -18,6 +18,10 @@ export const useIconsStore = defineStore('icons', () => {
             icon: '🧑🏻‍🤝‍🧑🏻',
             text: 'Group',
         },
+        {
+            icon: '📜',
+            text: 'Bill',
+        },
     ])
 
     return {

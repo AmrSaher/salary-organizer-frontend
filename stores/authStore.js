@@ -2,17 +2,8 @@ import { defineStore } from 'pinia'
 import { useLoaderStore } from './loaderStore'
 
 export const useAuthStore = defineStore('auth', () => {
-    const currentUser = ref({
-        name: '',
-        profile: {
-            first_name: '',
-        },
-    })
-    const user = ref(currentUser.value)
-    const currentToken = ref({
-        access_token: '',
-    })
-    const token = ref(currentToken.value)
+    const user = ref({})
+    const token = ref({})
     const loaderStore = useLoaderStore()
 
     const cacheJWTToken = (jwt) => {
@@ -23,7 +14,7 @@ export const useAuthStore = defineStore('auth', () => {
     const getJWTToken = () => token.value.access_token ?? useCookie('jwt').value
 
     const clearJWTToken = () => {
-        token.value = currentToken.value
+        token.value = {}
         useCookie('jwt').value = null
     }
 
@@ -33,7 +24,7 @@ export const useAuthStore = defineStore('auth', () => {
                 Authorization: 'Bearer ' + getJWTToken(),
             },
         })
-        user.value = data.value ? data.value : currentUser.value
+        user.value = data.value
     }
 
     const login = async (credentials) => {

@@ -46,11 +46,11 @@ export const useAuthStore = defineStore('auth', () => {
         loaderStore.stopLoading()
     }
 
-    const register = async (credentials) => {
+    const register = async (payload) => {
         loaderStore.startLoading()
         const { data, error } = await useApi('/register', {
             method: 'post',
-            body: credentials,
+            body: payload,
         })
 
         // Check if any errors returns

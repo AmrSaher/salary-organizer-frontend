@@ -7,11 +7,11 @@
         "
     >
         <HomeSliderCard
-            title="Bills"
-            icon="bi-receipt"
-            color="bg-orange-400"
+            v-for="category in authStore.user.categories"
+            :key="category.id"
+            :category="category"
         />
-        <HomeSliderCard
+        <!-- <HomeSliderCard
             title="Rentals"
             icon="bi-house"
             color="bg-blue-400"
@@ -31,13 +31,20 @@
             icon="bi-bank"
             color="bg-purple-400"
         />
+        -->
         <HomeSliderCard
-            title="Add new"
-            icon="bi-plus"
-            color="bg-[#5c46ea]"
+            :category="{
+                title: 'Add new',
+                icon: 'bi-plus',
+                color: '#5c46ea',
+                link: '/categories/create',
+            }"
         />
     </div>
 </template>
 
 <script setup>
+import { useAuthStore } from '~/stores/authStore'
+
+const authStore = useAuthStore()
 </script>

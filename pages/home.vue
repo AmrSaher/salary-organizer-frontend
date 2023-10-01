@@ -1,6 +1,6 @@
 <template>
     <div class="Home">
-        <Header :title="'Hello, ' + authStore.user.profile.first_name">
+        <Header title="Home">
             <a href="#" @click="handleLogoutSubmit">
                 <img src="~/assets/img/avatar.jpg" alt="avatar" class="w-[45px] rounded-full">
             </a>

@@ -99,7 +99,7 @@ const currentFormErrors = ref({
     password: [],
 })
 const formErrors = ref(currentFormErrors.value)
-const authStore = useAuthStore();
+const authStore = useAuthStore()
 
 const handleRegisterSubmit = async () => {
     formErrors.value = currentFormErrors.value

@@ -20,18 +20,11 @@
                 "
             >
             <span class="-mt-2 text-red-500 text-md font-semibold">{{ formErrors?.title[0] }}</span>
-            <div class="grid grid-cols-2 gap-2">
-                <select
-                    class="
-                        w-full p-4 rounded-md outline-none text-md
-                        bg-[#363447] border-2 border-[#47445e]
-                    "
-                    v-model="formData.icon"
-                >
-                    <option v-for="(icon, i) in iconsStore.icons" :key="i" :value="icon.icon" class="text-lg">
-                        {{ icon.icon }} {{ icon.text }}
-                    </option>
-                </select>
+            <div class="grid grid-cols-[1fr,2fr] gap-2">
+                <CategoriesIconSelect
+                    :icon="formData.icon"
+                    @setIcon="i => formData.icon = i"
+                />
                 <input
                     type="color"
                     placeholder="Color"
@@ -69,7 +62,7 @@ const iconsStore = useIconsStore()
 const formData = ref({
     title: '',
     color: '',
-    icon: '',
+    icon: iconsStore.icons[0],
 })
 const currentFormErrors = ref({
     title: [],

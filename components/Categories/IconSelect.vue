@@ -11,7 +11,7 @@
             v-if="showIcons"
             class="
                 absolute top-[90%] left-[50%] w-[200px]
-                p-4 bg-[#363447] rounded-md flex
+                p-2 bg-[#363447] rounded-md flex
                 items-center gap-2 justify-center flex-wrap
                 border-2 border-[#47445e]
             "

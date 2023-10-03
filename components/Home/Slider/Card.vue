@@ -8,9 +8,19 @@
         "
         :style="'background: ' + category.color"
     >
-        <i class="bi text-3xl text-white mix-blend-difference" v-if="category.icon.startsWith('bi')" :class="category.icon"></i>
+        <i
+            class="bi text-3xl"
+            v-if="category.icon.startsWith('bi')"
+            :class="category.icon"
+            :style="'color: ' + textColor"
+        ></i>
         <span v-else class="text-3xl">{{ category.icon }}</span>
-        <span class="text-white font-medium text-sm mix-blend-difference truncate">{{ category.title }}</span>
+        <span
+            class="
+                font-medium text-sm
+            "
+            :style="'color: ' + textColor"
+        >{{ category.title }}</span>
     </NuxtLink>
 </template>
 
@@ -18,4 +28,11 @@
 const { category } = defineProps([
     'category',
 ])
+
+const textColor = computed(
+    () => (
+        (parseInt(category.color.replace('#', ''), 16) > 0xffffff / 2)
+        ? '#000' : '#fff'
+    )
+)
 </script>

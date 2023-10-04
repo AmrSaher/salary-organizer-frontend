@@ -32,11 +32,11 @@
             <div class="flex w-full items-center">
                 <div class="w-[50%]">
                     <h3 class="font-light text-lg">Spend</h3>
-                    <span class="font-semibold text-[20px]">2,600 L.E</span>
+                    <span class="font-semibold text-[20px]">{{ authStore.user.profile.spend }} L.E</span>
                 </div>
                 <div class="w-[50%]">
                     <h3 class="font-light text-lg">Residual</h3>
-                    <span class="font-semibold text-[20px]">897 L.E</span>
+                    <span class="font-semibold text-[20px]">{{ authStore.user.profile.residual }} L.E</span>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@
         <div class="w-full flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <NuxtLink :to="backBtn" v-if="backBtn">
-                    <i class="bi bi-arrow-left-short text-3xl"></i>
+                    <i class="bi bi-arrow-left-short text-3xl text-white"></i>
                 </NuxtLink>
                 <h1 class="text-3xl text-white font-semibold">{{ title }}</h1>
             </div>

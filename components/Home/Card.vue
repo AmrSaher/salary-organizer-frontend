@@ -1,13 +1,5 @@
 <template>
     <div class="HomeCard relative w-full mb-7 h-[190px]">
-        <!-- <div
-            class="
-                card absolute w-[90%] -top-7 left-3
-                -rotate-12 h-[180px] bg-gradient-to-r
-                from-[#ce7ee9] to-[#4d3db4]
-                rounded-3xl
-            "
-        ></div> -->
         <div
             class="
                 card absolute w-[95%] -top-4 left-2
@@ -36,7 +28,10 @@
                 </div>
                 <div class="w-[50%]">
                     <h3 class="font-light text-lg">Residual</h3>
-                    <span class="font-semibold text-[20px]">{{ authStore.user.profile.residual }} L.E</span>
+                    <span
+                        class="font-semibold text-[20px]"
+                        :class="{'text-red-500': authStore.user.profile.residual < 0}"
+                    >{{ authStore.user.profile.residual }} L.E</span>
                 </div>
             </div>
         </div>

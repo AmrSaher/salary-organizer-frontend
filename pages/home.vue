@@ -7,7 +7,7 @@
         </Header>
         <HomeSlider />
         <HomeCard />
-        <HomeExpenses />
+        <HomeTransactions />
     </div>
 </template>
 

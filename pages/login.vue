@@ -13,6 +13,7 @@
                 class="
                     w-full flex flex-col gap-3
                 "
+                id="login-form"
             >
                 <input
                     type="email"
@@ -38,11 +39,11 @@
         </div>
         <div class="flex flex-col gap-2">
             <button
-                @click="handleLoginSubmit"
                 class="
                     w-full px-7 py-4 bg-[#5c46ea] text-white
                     text-center rounded-md font-semibold text-md
                 "
+                form="login-form"
             >Login</button>
             <div class="w-full flex justify-between items-center">
                 <span class="w-full h-[1px] bg-[#47445e]"></span>

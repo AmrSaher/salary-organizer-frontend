@@ -8,7 +8,7 @@
                 :to="'/categories/expenses/create/' + route.params.id"
                 class="px-2 rounded bg-[#5c46ea]"
             >
-                <i class="bi bi-plus text-white text-3xl m-0"></i>
+                <i class="bi bi-plus text-white text-3xl"></i>
             </NuxtLink>
         </Header>
         <p class="text-gray-300 w-full text-center" v-if="!expenses.length">No expenses</p>

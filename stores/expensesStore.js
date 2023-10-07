@@ -28,7 +28,7 @@ export const useExpensesStore = defineStore('expenses', () => {
             },
         })
 
-        // Check if any errors returns
+        // Check if any errors return
         if (error?.value?.data?.errors) {
             loaderStore.stopLoading()
             return error.value.data.errors

@@ -16,7 +16,7 @@ export const useTransactionsStore = defineStore('transactions', () => {
             },
         })
 
-        // Check if any errors returns
+        // Check if any errors return
         if (error?.value?.data?.errors) {
             loaderStore.stopLoading()
             return error.value.data.errors

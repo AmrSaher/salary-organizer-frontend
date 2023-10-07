@@ -34,7 +34,7 @@ export const useAuthStore = defineStore('auth', () => {
             body: credentials,
         })
         
-        // Check if any errors returns
+        // Check if any errors return
         if (error?.value?.data?.errors) {
             loaderStore.stopLoading()
             return error.value.data.errors
@@ -53,7 +53,7 @@ export const useAuthStore = defineStore('auth', () => {
             body: payload,
         })
 
-        // Check if any errors returns
+        // Check if any errors return
         if (error?.value?.data?.errors) {
             loaderStore.stopLoading()
             return error.value.data.errors
@@ -89,7 +89,7 @@ export const useAuthStore = defineStore('auth', () => {
             },
         })
 
-        // Check if any errors returns
+        // Check if any errors return
         if (error?.value?.data?.errors) {
             loaderStore.stopLoading()
             return error.value.data.errors

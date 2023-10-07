@@ -27,8 +27,13 @@
 </template>
 
 <script setup>
+import { useAuthStore } from '~/stores/authStore'
+
 definePageMeta({
     layout: 'start',
     middleware: 'guest',
 })
+
+const authStore = useAuthStore()
+await authStore.getUser() 
 </script>

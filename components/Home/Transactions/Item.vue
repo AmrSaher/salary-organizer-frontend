@@ -14,8 +14,10 @@
             <h3 class="text-md font-normal">{{ transaction.title }}</h3>
         </div>
         <span
-            class="text-red-500"
-            :class="{'text-green-500': transaction.isIncome}"
+            :class="{
+                'text-green-500': transaction.isIncome,
+                'text-red-500': !transaction.isIncome,
+            }"
         >{{ transaction.isIncome ? '+' : '-' }}{{ transaction.cost }} L.E</span>
     </li>
 </template>

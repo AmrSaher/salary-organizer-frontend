@@ -16,7 +16,7 @@ export const useCategoriesStore = defineStore('categories', () => {
             },
         })
 
-        // Check if any errors returns
+        // Check if any errors return
         if (error?.value?.data?.errors) {
             loaderStore.stopLoading()
             return error.value.data.errors
@@ -26,8 +26,23 @@ export const useCategoriesStore = defineStore('categories', () => {
         navigateTo('/home')
         loaderStore.stopLoading()
     }
+
+    const destroy = async (category_id) => {
+        loaderStore.startLoading()
+        await useApi('/categories/' + category_id, {
+            method: 'delete',
+            headers: {
+                Authorization: 'Bearer ' + authStore.getJWTToken(),
+            },
+        })
+
+        await authStore.getUser()
+        navigateTo('/home')
+        loaderStore.stopLoading()
+    }
     
     return {
         create,
+        destroy,
     }
 })

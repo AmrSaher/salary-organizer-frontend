@@ -27,7 +27,21 @@ export const useTransactionsStore = defineStore('transactions', () => {
         loaderStore.stopLoading()
     }
 
+    const destroy = async (transaction_id) => {
+        loaderStore.startLoading()
+        await useApi('/transactions/' + transaction_id, {
+            method: 'delete',
+            headers: {
+                Authorization: 'Bearer ' + authStore.getJWTToken(),
+            },
+        })
+
+        await authStore.getUser()
+        loaderStore.stopLoading()
+    }
+
     return {
         create,
+        destroy,
     }
 })

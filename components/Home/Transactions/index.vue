@@ -10,7 +10,7 @@
             </NuxtLink>
         </header>
         <p class="text-gray-300 w-full text-center" v-if="!authStore.user.transactions.length">No transactions</p>
-        <ul class="w-full flex flex-col gap-4" v-else>
+        <ul class="w-full flex flex-col gap-4 overflow-hidden" v-else>
             <HomeTransactionsItem
                 v-for="transaction in authStore.user.transactions"
                 :key="transaction.id"

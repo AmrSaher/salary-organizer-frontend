@@ -35,7 +35,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      BASE_API_URL: 'http://192.168.1.4:8000/api',
+      BASE_API_URL: 'http://192.168.1.2:8000/api',
     },
   },
+  ssr: false,
 })

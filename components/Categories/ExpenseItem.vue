@@ -1,6 +1,6 @@
 <template>
     <li
-        class="CategoriesExpenseItem transition-all delay-200 text-white"
+        class="CategoriesExpenseItem transition-all delay-100 text-white"
         ref="item"
         data-type="0"
     >
@@ -28,7 +28,6 @@
 </template>
 
 <script setup>
-import { useAuthStore } from '~/stores/authStore'
 import { useExpensesStore } from '~/stores/expensesStore'
 
 const { expense } = defineProps([
@@ -38,7 +37,6 @@ const emit = defineEmits([
     'fetchExpenses'
 ])
 const expensesStore = useExpensesStore()
-const authStore = useAuthStore()
 const startX = ref(0)
 const endX = ref(0)
 const item = ref(null)

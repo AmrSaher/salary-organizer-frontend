@@ -19,19 +19,19 @@
         >
             <header class="flex flex-col">
                 <h2 class="font-light text-lg">My salary</h2>
-                <span class="font-bold text-[30px] -mt-2">{{ authStore.user.profile.salary }} L.E</span>
+                <span class="font-bold text-[30px] -mt-2">{{ authStore.user?.profile?.salary }} L.E</span>
             </header>
             <div class="flex w-full items-center">
                 <div class="w-[50%]">
                     <h3 class="font-light text-lg">Spend</h3>
-                    <span class="font-semibold text-[20px]">{{ authStore.user.profile.spend }} L.E</span>
+                    <span class="font-semibold text-[20px]">{{ authStore.user?.profile?.spend }} L.E</span>
                 </div>
                 <div class="w-[50%]">
                     <h3 class="font-light text-lg">Residual</h3>
                     <span
                         class="font-semibold text-[20px]"
-                        :class="{'text-red-500': authStore.user.profile.residual < 0}"
-                    >{{ authStore.user.profile.residual }} L.E</span>
+                        :class="{'text-red-500': authStore.user?.profile?.residual < 0}"
+                    >{{ authStore.user?.profile?.residual }} L.E</span>
                 </div>
             </div>
         </div>

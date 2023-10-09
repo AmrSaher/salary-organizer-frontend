@@ -33,7 +33,4 @@ definePageMeta({
     layout: 'start',
     middleware: 'guest',
 })
-
-const authStore = useAuthStore()
-await authStore.getUser() 
 </script>

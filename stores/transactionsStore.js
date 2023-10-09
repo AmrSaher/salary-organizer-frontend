@@ -22,7 +22,7 @@ export const useTransactionsStore = defineStore('transactions', () => {
             return error.value.data.errors
         }
 
-        await authStore.getUser()
+        // await authStore.getUser()
         navigateTo('/home')
         loaderStore.stopLoading()
     }

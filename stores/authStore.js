@@ -41,7 +41,7 @@ export const useAuthStore = defineStore('auth', () => {
         }
         
         cacheJWTToken(data.value)
-        await getUser()
+        // await getUser()
         navigateTo('/home')
         loaderStore.stopLoading()
     }
@@ -60,7 +60,7 @@ export const useAuthStore = defineStore('auth', () => {
         }
 
         cacheJWTToken(data.value)
-        await getUser()
+        // await getUser()
         navigateTo('/home')
         loaderStore.stopLoading()
     }
@@ -74,6 +74,7 @@ export const useAuthStore = defineStore('auth', () => {
             },
         })
 
+        user.value = {}
         clearJWTToken()
         navigateTo('/')
         loaderStore.stopLoading()
@@ -95,7 +96,7 @@ export const useAuthStore = defineStore('auth', () => {
             return error.value.data.errors
         }
 
-        await getUser()
+        // await getUser()
         navigateTo('/home')
         loaderStore.stopLoading()
     }

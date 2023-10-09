@@ -22,7 +22,7 @@ export const useCategoriesStore = defineStore('categories', () => {
             return error.value.data.errors
         }
 
-        await authStore.getUser()
+        // await authStore.getUser()
         navigateTo('/home')
         loaderStore.stopLoading()
     }
@@ -36,7 +36,7 @@ export const useCategoriesStore = defineStore('categories', () => {
             },
         })
 
-        await authStore.getUser()
+        // await authStore.getUser()
         navigateTo('/home')
         loaderStore.stopLoading()
     }

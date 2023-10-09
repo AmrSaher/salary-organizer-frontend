@@ -38,8 +38,20 @@ export const useExpensesStore = defineStore('expenses', () => {
         loaderStore.stopLoading()
     }
 
+    const destroy = async (expense_id) => {
+        loaderStore.startLoading()
+        await useApi('/expenses/' + expense_id, {
+            method: 'delete',
+            headers: {
+                Authorization: 'Bearer ' + authStore.getJWTToken(),
+            },
+        })
+        loaderStore.stopLoading()
+    }
+
     return {
         getExpenses,
         create,
+        destroy,
     }
 })

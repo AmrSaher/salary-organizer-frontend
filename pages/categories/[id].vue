@@ -17,21 +17,15 @@
             </div>
         </Header>
         <p class="text-gray-300 w-full text-center" v-if="!expenses.length">No expenses</p>
-        <ul class="w-full flex flex-col gap-4" v-else>
-            <li
-                class="
-                    w-full flex items-center justify-between
-                    text-white
-                "
+        <ul class="w-full flex flex-col gap-4 overflow-hidden" v-else>
+            <CategoriesExpenseItem
                 v-for="expense in expenses"
                 :key="expense.id"
-            >
-                <div class="flex items-center gap-3">
-                    <h3 class="text-lg font-normal">{{ expense.title }}</h3>
-                </div>
-                <span class="text-red-500">-{{ expense.cost }} L.E</span>
-            </li>
+                :expense="expense"
+                @fetchExpenses="fetchExpenses"
+            />
         </ul>
+        <!-- <CategoriesExpensesList /> -->
     </div>
 </template>
 
@@ -57,7 +51,6 @@ const expenses = ref([])
 const fetchExpenses = async () => {
     expenses.value = await expensesStore.getExpenses(category.id)
 }
-await authStore.getUser()
 await fetchExpenses()
 
 const handleDeleteCategorySubmit = async () => {
